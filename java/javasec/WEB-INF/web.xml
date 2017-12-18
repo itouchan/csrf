@@ -1,0 +1,135 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>CSRF Created Web Application</display-name>
+
+  <!-- Before -->
+  <servlet>
+      <servlet-name>CsrfBeforeKeijiban</servlet-name>
+      <servlet-class>csrfbefore.Keijiban</servlet-class>
+  </servlet>
+  <servlet>
+      <servlet-name>CsrfBeforeLogin</servlet-name>
+      <servlet-class>csrfbefore.Login</servlet-class>
+  </servlet>
+  <servlet>
+      <servlet-name>CsrfBeforeMypage</servlet-name>
+      <servlet-class>csrfbefore.Mypage</servlet-class>
+  </servlet>
+  <servlet>
+      <servlet-name>CsrfBeforeLogout</servlet-name>
+      <servlet-class>csrfbefore.Logout</servlet-class>
+  </servlet>
+  <servlet>
+      <servlet-name>CsrfBeforeChangePassword</servlet-name>
+      <servlet-class>csrfbefore.ChangePassword</servlet-class>
+  </servlet>
+  <servlet>
+      <servlet-name>CsrfBeforeChangePasswordExe</servlet-name>
+      <servlet-class>csrfbefore.ChangePasswordExe</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>CsrfBeforeKeijiban</servlet-name>
+      <url-pattern>/csrfbefore/Keijiban</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>CsrfBeforeLogin</servlet-name>
+      <url-pattern>/csrfbefore/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>CsrfBeforeMypage</servlet-name>
+      <url-pattern>/csrfbefore/Mypage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>CsrfBeforeLogout</servlet-name>
+      <url-pattern>/csrfbefore/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>CsrfBeforeChangePassword</servlet-name>
+      <url-pattern>/csrfbefore/ChangePassword</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>CsrfBeforeChangePasswordExe</servlet-name>
+      <url-pattern>/csrfbefore/ChangePasswordExe</url-pattern>
+  </servlet-mapping>
+
+  <!-- After -->
+  <servlet>
+      <servlet-name>CsrfAfterKeijiban</servlet-name>
+      <servlet-class>csrfafter.Keijiban</servlet-class>
+  </servlet>
+  <servlet>
+      <servlet-name>CsrfAfterLogin</servlet-name>
+      <servlet-class>csrfafter.Login</servlet-class>
+  </servlet>
+  <servlet>
+      <servlet-name>CsrfAfterMypage</servlet-name>
+      <servlet-class>csrfafter.Mypage</servlet-class>
+  </servlet>
+  <servlet>
+      <servlet-name>CsrfAfterLogout</servlet-name>
+      <servlet-class>csrfafter.Logout</servlet-class>
+  </servlet>
+  <servlet>
+      <servlet-name>CsrfAfterChangePassword</servlet-name>
+      <servlet-class>csrfafter.ChangePassword</servlet-class>
+  </servlet>
+  <servlet>
+      <servlet-name>CsrfAfterChangePasswordExe</servlet-name>
+      <servlet-class>csrfafter.ChangePasswordExe</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>CsrfAfterKeijiban</servlet-name>
+      <url-pattern>/csrfafter/Keijiban</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>CsrfAfterLogin</servlet-name>
+      <url-pattern>/csrfafter/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>CsrfAfterMypage</servlet-name>
+      <url-pattern>/csrfafter/Mypage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>CsrfAfterLogout</servlet-name>
+      <url-pattern>/csrfafter/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>CsrfAfterChangePassword</servlet-name>
+      <url-pattern>/csrfafter/ChangePassword</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+      <servlet-name>CsrfAfterChangePasswordExe</servlet-name>
+      <url-pattern>/csrfafter/ChangePasswordExe</url-pattern>
+  </servlet-mapping>
+
+  <!-- basic認証 -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>User Basic Auth</web-resource-name>
+      <!--<url-pattern>/*</url-pattern>-->
+      <url-pattern>/csrfbefore/Keijiban</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>tomcat</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>User Basic Auth</realm-name>
+  </login-config>
+
+  <security-role>
+    <role-name>role1</role-name>
+  </security-role>
+  <security-role>
+    <role-name>tomcat</role-name>
+  </security-role>
+  <security-role>
+    <role-name>user</role-name>
+  </security-role>
+
+</web-app>
