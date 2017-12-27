@@ -26,12 +26,12 @@ https://www.ipa.go.jp/security/awareness/vendor/programmingv2/contents/img/w301.
 
 ## 実際にやってみよう(対応前)
 （１）掲示板に罠を仕掛ける  
-http://www31303ue.sakura.ne.jp:8080/javasec/csrfbefore/Keijiban
+http://www31303ue.sakura.ne.jp:8080/javasec/csrfbefore/Keijiban  
 （２）とあるサイトにログイン（パスワードを確認）  
-http://www31303ue.sakura.ne.jp:8080/javasec/csrfbefore/Login
+http://www31303ue.sakura.ne.jp:8080/javasec/csrfbefore/Login  
 before/before  
 （３）掲示板の罠（リンク）をふむ  
-http://www31303ue.sakura.ne.jp:8080/javasec/csrfbefore/Keijiban
+http://www31303ue.sakura.ne.jp:8080/javasec/csrfbefore/Keijiban  
 （４）ログアウト  
 （５）再度ログインする※パスワードが変更されている為ログインできない  
 
@@ -50,7 +50,7 @@ HTTPリクエストに伴って送られてきたCookieに正規のセッショ�
 （２）フレームワークにてCSRF対策  
 （CakePHP,Ruby on Rails,SpringFramework（Spring Security ））  
 　・CakePHP  
-https://book.cakephp.org/3.0/ja/controllers/components/csrf.html
+https://book.cakephp.org/3.0/ja/controllers/components/csrf.html  
 
 ## 動作環境
 AP:Tomcat  
