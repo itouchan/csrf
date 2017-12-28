@@ -30,7 +30,7 @@ http://www31303ue.sakura.ne.jp:8080/javasec/csrfbefore/Keijiban
 （２）とあるサイトにログイン（パスワードを確認）  
 http://www31303ue.sakura.ne.jp:8080/javasec/csrfbefore/Login  
 before/before  
-（３）掲示板の罠（リンク）をふむ  
+（３）掲示板の罠（リンク）をふむ（リンク）をふむ（CSRF攻撃(Before)）    
 http://www31303ue.sakura.ne.jp:8080/javasec/csrfbefore/Keijiban  
 （４）ログアウト  
 （５）再度ログインする※パスワードが変更されている為ログインできない  
@@ -52,6 +52,61 @@ HTTPリクエストに伴って送られてきたCookieに正規のセッショ�
 　・CakePHP  
 https://book.cakephp.org/3.0/ja/controllers/components/csrf.html  
 
+## 実際にやってみよう(対応後)
+（１）掲示板に罠を仕掛ける  
+http://www31303ue.sakura.ne.jp:8080/javasec/csrfafter/Keijiban  
+（２）とあるサイトにログイン（パスワードを確認）  
+http://www31303ue.sakura.ne.jp:8080/javasec/csrfafter/Login  
+after/after  
+（３）掲示板の罠（リンク）をふむ（CSRF攻撃(After)）  
+http://www31303ue.sakura.ne.jp:8080/javasec/csrfafter/Keijiban  
+（４）ログアウト  
+（５）再度ログインする※パスワードが変更されている為ログインできない  
+
 ## 動作環境
 AP:Tomcat  
 Lang:Java  
+
+
+## 構成
+csrf
+∟
+　∟atack
+　∟Java
+　　∟javasec
+　　　∟WEB-INF  
+　　　　∟classes  
+　　　　　∟csrfafter  
+　　　　　　∟ChangePassword.java  
+　　　　　　∟ChangePasswordExe.java  
+　　　　　　∟Comments.java  
+　　　　　　∟Keijiban.java  
+　　　　　　∟Login.java  
+　　　　　　∟Logout.java  
+　　　　　　∟Mypage.java  
+　　　　　　∟Users.java  
+　　　　　∟csrfbefore  
+　　　　　　∟ChangePassword.java  
+　　　　　　∟ChangePasswordExe.java  
+　　　　　　∟Comments.java  
+　　　　　　∟Keijiban.java  
+　　　　　　∟Login.java  
+　　　　　　∟Logout.java  
+　　　　　　∟Mypage.java  
+　　　　　　∟Users.java  
+　　　　∟lib  
+　　　　∟web.xml  
+　　　∟jsp  
+　　　　∟csrfafter  
+　　　　　∟changepassword.jsp  
+　　　　　∟changepasswordfinish.jsp  
+　　　　　∟keijiban.jsp  
+　　　　　∟login.jsp  
+　　　　　∟mypage.jsp  
+　　　　∟csrfbefore  
+　　　　　∟changepassword.jsp  
+　　　　　∟changepasswordfinish.jsp  
+　　　　　∟keijiban.jsp  
+　　　　　∟login.jsp  
+　　　　　∟mypage.jsp  
+　　　∟index.html
